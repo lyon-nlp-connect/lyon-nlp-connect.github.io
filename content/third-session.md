@@ -17,7 +17,7 @@ The discussion-launching questions would be provided for each topic during the e
 Selected topics:
 
 - Current Limitations of LLMs 
-- Multimodal NL
+- Multimodal NLP
 - Reinforcement Learning in NLP
 
 To receive the Discord link, please fill out the form on the homepage of the website (if you haven't already).
