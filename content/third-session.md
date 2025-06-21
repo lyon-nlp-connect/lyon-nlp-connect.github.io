@@ -9,10 +9,10 @@ series:
 ---
 
 ## Event Details
-The third session will consist of one part. 
+The third session will consist of 2 parts. 
 We'll begin with a roundtable for new participants to share their research interests, followed by a Birds-of-a-Feather-style group discussion.
 This time, apart from PhD students and postdocs, we invite MSc students working on NLP-related topics during internship, as well!
-The idea is to discuss recent papers in the selected topics.  
+The idea is to discuss recent papers on the selected topics.  
 The discussion-launching questions would be provided for each topic during the event.
 Selected topics:
 
@@ -20,7 +20,7 @@ Selected topics:
 - Multimodal NL
 - Reinforcement Learning in NLP
 
--To receive the Discord link, please fill out the form on the homepage of the website (if you haven't already).
+To receive the Discord link, please fill out the form on the homepage of the website (if you haven't already).
 
 ## Date and Location
 
