@@ -1,245 +1,1251 @@
 {{ define "main" }}
-<link href="https://unpkg.com/vis-network/styles/vis-network.min.css" rel="stylesheet" />
-<script src="https://d3js.org/d3.v7.min.js"></script>
+
+<link
+  href="https://unpkg.com/vis-network/styles/vis-network.min.css"
+  rel="stylesheet"
+/>
+
 <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+
 <main class="container mx-auto">
+
+  <!-- ========================================================= -->
+  <!-- INTRO -->
+  <!-- ========================================================= -->
+
   <div class="flex items-center flex-col sm:flex-row sm:items-start gap-8">
-    <img class="w-48 sm:w-40 rounded-lg mt-1" src="{{ .Site.Params.Author.Avatar }}" alt="avatar">
+
+    <img
+      class="w-48 sm:w-40 rounded-lg mt-1"
+      src="{{ .Site.Params.Author.Avatar }}"
+      alt="Lyon NLP Connect"
+    >
+
     <div class="text-center sm:text-left">
-      <h2 class="text-3xl font-bold mb-2" style="line-height: 1;">{{ .Site.Params.greet }}</h2>
-      <p class="mt-0 mb-0">{{ .Site.Params.author.status }}</p>
-      <p class="mt-3 mb-3 home-intro">{{ .Site.Params.Author.description | markdownify | safeHTML }}
-      <div style="text-align: left;">
-        <a href="https://forms.gle/MyjWzfi5nBXedQ5R6" target="_blank" style="text-decoration:none;">
-  <button style="
-    padding:12px 24px;
-    background: linear-gradient(90deg, #184074, #78076B);
-    color:white;
-    border:none;
-    border-radius:50px;
-    cursor:pointer;
-    font-weight:bold;
-    transition: box-shadow 0.3s ease;
-  "
-  onmouseover="this.style.boxShadow='0 0 20px rgba(238,9,121,0.7)'"
-  onmouseout="this.style.boxShadow='none'">
-    Sign Up
-  </button>
-</a>
-</div>
+
+      <h2
+        class="text-3xl font-bold mb-2"
+        style="line-height: 1;"
+      >
+        {{ .Site.Params.greet }}
+      </h2>
+
+      <p class="mt-0 mb-0">
+        {{ .Site.Params.author.status }}
       </p>
+
+      <div class="mt-3 mb-3 home-intro">
+        {{ .Site.Params.Author.description | markdownify | safeHTML }}
+      </div>
+
+      <!-- Sign-up button -->
+      <div style="margin-top: 18px; text-align: left;">
+
+        <a
+          href="https://forms.gle/MyjWzfi5nBXedQ5R6"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="text-decoration: none;"
+        >
+
+          <button
+            class="nlp-signup-button"
+            type="button"
+          >
+            Join Lyon NLP Connect
+          </button>
+
+        </a>
+
+      </div>
+
       <br>
-      <div style="text-align: right;">
-  <h2 class="text-l font-bold mb-2" style="line-height: 1;">Organized by PhD students @ ERIC Lab</h2>
-  <p style="font-size: 16px; font-weight: bold;">
-    <strong>
-      <a href="mailto:irina.proskurina@univ-lyon2.fr">Irina Proskurina</a> &amp;
-      <a href="mailto:e.versmee@univ-lyon2.fr">Erwan Versmée</a>
-    </strong>
-  </p>
-</div>
+
+      <!-- Organizers -->
+      <div
+        style="
+          text-align: right;
+          margin-top: 12px;
+        "
+      >
+
+        <h2
+          class="text-l font-bold mb-2"
+          style="line-height: 1;"
+        >
+          Organized by PhD researchers @ ERIC Lab
+        </h2>
+
+        <p
+          style="
+            font-size: 16px;
+            font-weight: 600;
+          "
+        >
+
+          <a href="mailto:irina.proskurina@univ-lyon2.fr">
+            Irina Proskurina
+          </a>
+
+          &nbsp;·&nbsp;
+
+          <a href="mailto:e.versmee@univ-lyon2.fr">
+            Erwan Versmée
+          </a>
+
+        </p>
+
+      </div>
+
     </div>
+
   </div>
 
-  <h2 class="text-xl font-bold mb-2" style="line-height: 1;">Network</h2>
 
-Drag and connect nodes to form edges. The nodes are collected from the affiliations of subscribed members.
+  <section class="nlp-network-section">
 
-<div id="success-title" style="text-align: center; color: green; font-weight: bold; display: none;">
-  Success! You connected all the nodes.
-</div>
-<div id="graph-container" style="width: 100%; max-width: 800px; height: 500px; margin: 20px auto;"></div>
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const container = document.getElementById('graph-container');
+    <div class="nlp-network-heading">
+
+      <div>
+        <h2
+          class="text-xl font-bold mb-2"
+          style="line-height: 1;"
+        >
+          Lyon NLP Network
+        </h2>
+
+        <p class="nlp-network-description">
+          A map of laboratories and institutions represented in the
+          Lyon NLP Connect community.
+          Drag nodes close to each other to create connections.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- Legend -->
+    <div class="nlp-network-legend">
+
+      <span class="legend-item">
+        <span
+          class="legend-dot"
+          style="background:#635BFF;"
+        ></span>
+        Lyon 2
+      </span>
+
+      <span class="legend-item">
+        <span
+          class="legend-dot"
+          style="background:#E76F51;"
+        ></span>
+        Lyon 1
+      </span>
+
+      <span class="legend-item">
+        <span
+          class="legend-dot"
+          style="background:#17A398;"
+        ></span>
+        Jean Monnet
+      </span>
+
+      <span class="legend-item">
+        <span
+          class="legend-dot"
+          style="background:#E7A33E;"
+        ></span>
+        ENS de Lyon
+      </span>
+
+      <span class="legend-item">
+        <span
+          class="legend-dot"
+          style="background:#3D7EA6;"
+        ></span>
+        INSA Lyon
+      </span>
+
+      <span class="legend-item">
+        <span
+          class="legend-dot"
+          style="background:#985BD6;"
+        ></span>
+        Other institutions
+      </span>
+
+    </div>
+
+
+    <!-- Success message -->
+    <div id="success-title" class="network-success">
+      ✦ Network connected!
+    </div>
+
+
+    <!-- Graph -->
+    <div id="graph-container"></div>
+
+    <p class="network-hint">
+      Drag · Connect · Explore
+    </p>
+
+  </section>
+
+
+  <!-- ========================================================= -->
+  <!-- CONFERENCE DATES -->
+  <!-- ========================================================= -->
+
+  <section class="project-area section-gap-top">
+
+    <div class="container">
+
+      <div class="section-title text-left">
+
+        <h2
+          class="text-xl font-bold mb-2"
+          style="line-height: 1;"
+        >
+          Conference Dates
+        </h2>
+
+      </div>
+
+      <div class="col-lg-12 col-md-12">
+
+        <div class="card">
+
+          <iframe
+            src="https://huggingface-ai-deadlines.hf.space"
+            frameborder="0"
+            width="100%"
+            height="500"
+            scrolling="yes"
+            title="AI Conference Deadlines"
+          >
+          </iframe>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  {{ if eq .Paginator.PageNumber 1 }}
+
+    <h3 class="text-center sm:text-left mt-6 mb-4 text-2xl font-bold">
+      {{ T "recent" }}
+    </h3>
+
+  {{ else }}
+
+    <h3 class="mt-6 mb-4 text-2xl font-bold">
+      {{ T "older" }}
+    </h3>
+
+  {{ end }}
+
+
+  <div>
+
+    {{ $paginator := .Paginate (where .Site.RegularPages "Kind" "page") }}
+
+    {{ range $paginator.Pages }}
+
+      {{ if ne .Page.Layout "search" }}
+
+        {{ partial "item.html" . }}
+
+      {{ end }}
+
+    {{ end }}
+
+    {{ partial "paginator.html" . }}
+
+  </div>
+
+
+  {{ if .Site.Params.friends.feeds }}
+
+    <h3 class="mt-6 mb-6 text-2xl font-semibold">
+      {{ .Site.Params.friends.title }}
+    </h3>
+
+    <div id="friends"></div>
+
+  {{ end }}
+
+</main>
+
+
+
+<style>
+
+
+  .nlp-signup-button {
+    padding: 12px 24px;
+
+    background:
+      linear-gradient(
+        100deg,
+        #184074 0%,
+        #635BFF 52%,
+        #78076B 100%
+      );
+
+    color: white;
+
+    border: none;
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 15px;
+
+    box-shadow:
+      0 5px 16px rgba(70, 60, 180, 0.18);
+
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .nlp-signup-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+      0 8px 24px rgba(99, 91, 255, 0.30);
+  }
+
+  .nlp-network-section {
+    margin-top: 48px;
+    margin-bottom: 52px;
+  }
+
+
+  .nlp-network-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 18px;
+  }
+
+
+  .nlp-network-description {
+    margin-top: 7px;
+    margin-bottom: 0;
+
+    max-width: 720px;
+
+    font-size: 15px;
+
+    opacity: 0.73;
+
+    line-height: 1.65;
+  }
+
+  .nlp-network-legend {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px 16px;
+
+    max-width: 900px;
+
+    margin:
+      5px
+      auto
+      16px
+      auto;
+
+    font-size: 13px;
+
+    opacity: 0.86;
+  }
+
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    white-space: nowrap;
+  }
+
+
+  .legend-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    box-shadow:
+      0 0 0 2px rgba(130,130,130,0.09);
+  }
+
+  #graph-container {
+    width: 100%;
+
+    max-width: 900px;
+
+    height: 540px;
+
+    margin:
+      0
+      auto;
+
+    border:
+      1px solid
+      rgba(100, 110, 130, 0.16);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background:
+      radial-gradient(
+        circle at 50% 45%,
+        rgba(99, 91, 255, 0.045),
+        transparent 50%
+      ),
+      rgba(125, 130, 145, 0.025);
+
+    box-shadow:
+      0 12px 40px
+      rgba(0, 0, 0, 0.035);
+  }
+
+
+  html.dark #graph-container {
+
+    border-color:
+      rgba(255, 255, 255, 0.10);
+
+    background:
+      radial-gradient(
+        circle at 50% 45%,
+        rgba(99, 91, 255, 0.08),
+        transparent 52%
+      ),
+      rgba(255, 255, 255, 0.018);
+
+    box-shadow:
+      0 12px 40px
+      rgba(0, 0, 0, 0.12);
+  }
+
+
+  /* --------------------------------------------------------- */
+  /* Hint */
+  /* --------------------------------------------------------- */
+
+  .network-hint {
+    text-align: center;
+
+    margin-top: 11px;
+
+    font-size: 12px;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    opacity: 0.40;
+  }
+
+
+  .network-success {
+    display: none;
+
+    text-align: center;
+
+    margin:
+      10px
+      auto
+      14px
+      auto;
+
+    font-weight: 650;
+
+    font-size: 14px;
+
+    letter-spacing: 0.01em;
+  }
+
+
+  @media (max-width: 640px) {
+
+    #graph-container {
+      height: 470px;
+      border-radius: 14px;
+    }
+
+    .nlp-network-section {
+      margin-top: 38px;
+    }
+
+  }
+
+</style>
+
+
+<script>
+
+document.addEventListener(
+  'DOMContentLoaded',
+  function () {
+
+    const container =
+      document.getElementById('graph-container');
+
+    const successTitle =
+      document.getElementById('success-title');
+
+
+    /* ======================================================= */
+    /* Theme helpers */
+    /* ======================================================= */
 
     function getCurrentTheme() {
-      return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+
+      return document.documentElement.classList.contains('dark')
+        ? 'dark'
+        : 'light';
+
     }
 
-    function getFontColor(theme) {
-      return theme === 'dark' ? 'white' : 'black';
+
+    function getEdgeColor(theme) {
+
+      return theme === 'dark'
+        ? '#515563'
+        : '#C7CBD3';
+
     }
+
 
     const labs = [
-      { id: 1, label: 'Lab ERIC', group: 'Université Lumière Lyon 2' },
-      { id: 2, label: 'Lab DDL', group: 'Université Lumière Lyon 2' },
-      { id: 3, label: 'Lab LIRIS', group: 'Université Lyon 1' },
-      { id: 4, label: 'Lab CREATIS', group: 'Université Lyon 1' },
-      { id: 5, label: 'Lab LBBE', group: 'Université Lyon 1' },
-      { id: 6, label: 'Lab Hubert Curien', group: 'Université Jean Monnet' },
-      { id: 7, label: 'CERGIC', group: 'ENS Lyon' },
-      { id: 8, label: 'IHRIM', group: 'ENS Lyon' },
-      { id: 9, label: 'INSA Lyon', group: 'INSA Lyon' },
-      { id: 10, label: 'CITI Lab', group: 'INSA Lyon' },
-      { id: 11, label: 'CREST - ENSAE & CNRS', group: 'CREST - ENSAE & CNRS' },
-      { id: 12, label: 'INSERM', group: 'INSERM' }
+
+      {
+        id: 1,
+        label: 'ERIC',
+        title: 'ERIC — Université Lumière Lyon 2',
+        group: 'lyon2'
+      },
+
+      {
+        id: 2,
+        label: 'DDL',
+        title: 'Dynamique Du Langage — Université Lumière Lyon 2',
+        group: 'lyon2'
+      },
+
+      {
+        id: 3,
+        label: 'LIRIS',
+        title: 'LIRIS — Université Claude Bernard Lyon 1',
+        group: 'lyon1'
+      },
+
+      {
+        id: 4,
+        label: 'CREATIS',
+        title: 'CREATIS — Université Claude Bernard Lyon 1',
+        group: 'lyon1'
+      },
+
+      {
+        id: 5,
+        label: 'LBBE',
+        title: 'Laboratoire de Biométrie et Biologie Évolutive — Université Claude Bernard Lyon 1',
+        group: 'lyon1'
+      },
+
+      {
+        id: 6,
+        label: 'Hubert Curien',
+        title: 'Laboratoire Hubert Curien — Université Jean Monnet',
+        group: 'ujm'
+      },
+
+      {
+        id: 7,
+        label: 'CERGIC',
+        title: 'CERGIC — ENS de Lyon',
+        group: 'ens'
+      },
+
+      {
+        id: 8,
+        label: 'IHRIM',
+        title: 'IHRIM — ENS de Lyon',
+        group: 'ens'
+      },
+
+      {
+        id: 9,
+        label: 'INSA Lyon',
+        title: 'INSA Lyon',
+        group: 'insa'
+      },
+
+      {
+        id: 10,
+        label: 'CITI',
+        title: 'CITI Laboratory — INSA Lyon',
+        group: 'insa'
+      },
+
+      {
+        id: 11,
+        label: 'CREST',
+        title: 'CREST — ENSAE / CNRS',
+        group: 'external'
+      },
+
+      {
+        id: 12,
+        label: 'INSERM',
+        title: 'Institut national de la santé et de la recherche médicale',
+        group: 'external2'
+      }
+
     ];
 
     const groups = {
-      'Université Lumière Lyon 2': { color: { background: '#FFB3BA' }, borderWidth: 1 },
-      'Lab ERIC': { color: { background: '#FFDFBA' }, borderWidth: 1 },
-      'Lab DDL': { color: { background: '#FFFFBA' }, borderWidth: 1 },
-      'IHRIM': { color: { background: '#BAFFC9' }, borderWidth: 1 },
-      'Université Lyon 1': { color: { background: '#BAE1FF' }, borderWidth: 1 },
-      'Lab LIRIS': { color: { background: '#D7BAFF' }, borderWidth: 1 },
-      'Lab CREATIS': { color: { background: '#FFB3E6' }, borderWidth: 1 },
-      'Lab LBBE': { color: { background: '#FFB3BA' }, borderWidth: 1 },
-      'Université Jean Monnet': { color: { background: '#FFDFBA' }, borderWidth: 1 },
-      'Lab Hubert Curien': { color: { background: '#FFFFBA' }, borderWidth: 1 },
-      'ENS Lyon': { color: { background: '#BAFFC9' }, borderWidth: 1 },
-      'CERGIC': { color: { background: '#BAE1FF' }, borderWidth: 1 },
-      'INSA Lyon': { color: { background: '#FFB3E6' }, borderWidth: 1 },
-      'CITI Lab': { color: { background: '#FFB3BA' }, borderWidth: 1 },
-      'CREST - ENSAE & CNRS': { color: { background: '#FFFFBA' }, borderWidth: 1 },
-      'INSERM': { color: { background: '#BAFFC9' }, borderWidth: 1 }
+
+      lyon2: {
+
+        color: {
+
+          background: '#635BFF',
+          border: '#4941D2',
+
+          highlight: {
+            background: '#756EFF',
+            border: '#FFFFFF'
+          },
+
+          hover: {
+            background: '#7069FF',
+            border: '#FFFFFF'
+          }
+
+        }
+
+      },
+
+
+      lyon1: {
+
+        color: {
+
+          background: '#E76F51',
+          border: '#BC533A',
+
+          highlight: {
+            background: '#F07F63',
+            border: '#FFFFFF'
+          },
+
+          hover: {
+            background: '#F07F63',
+            border: '#FFFFFF'
+          }
+
+        }
+
+      },
+
+
+      ujm: {
+
+        color: {
+
+          background: '#17A398',
+          border: '#117970',
+
+          highlight: {
+            background: '#25B6AA',
+            border: '#FFFFFF'
+          },
+
+          hover: {
+            background: '#25B6AA',
+            border: '#FFFFFF'
+          }
+
+        }
+
+      },
+
+
+      ens: {
+
+        color: {
+
+          background: '#E7A33E',
+          border: '#B77B25',
+
+          highlight: {
+            background: '#F0B353',
+            border: '#FFFFFF'
+          },
+
+          hover: {
+            background: '#F0B353',
+            border: '#FFFFFF'
+          }
+
+        }
+
+      },
+
+
+      insa: {
+
+        color: {
+
+          background: '#3D7EA6',
+          border: '#2C607E',
+
+          highlight: {
+            background: '#508FB5',
+            border: '#FFFFFF'
+          },
+
+          hover: {
+            background: '#508FB5',
+            border: '#FFFFFF'
+          }
+
+        }
+
+      },
+
+
+      external: {
+
+        color: {
+
+          background: '#985BD6',
+          border: '#7340A8',
+
+          highlight: {
+            background: '#A86CE2',
+            border: '#FFFFFF'
+          },
+
+          hover: {
+            background: '#A86CE2',
+            border: '#FFFFFF'
+          }
+
+        }
+
+      },
+
+
+      external2: {
+
+        color: {
+
+          background: '#C8579D',
+          border: '#963C75',
+
+          highlight: {
+            background: '#D66AAF',
+            border: '#FFFFFF'
+          },
+
+          hover: {
+            background: '#D66AAF',
+            border: '#FFFFFF'
+          }
+
+        }
+
+      }
+
     };
 
-    let nodes = new vis.DataSet(labs);
-    let edges = new vis.DataSet([]);
-    let network;
-    let establishedEdges = new Set();
+
+    const nodes =
+      new vis.DataSet(labs);
+
+    const edges =
+      new vis.DataSet([]);
+
+    let network = null;
+
+    const establishedEdges =
+      new Set();
+
+
+
+    /* ======================================================= */
+    /* NETWORK */
+    /* ======================================================= */
 
     function createNetwork(theme) {
+
       if (network) {
         network.destroy();
       }
 
-      let options = {
+
+      const options = {
+
         nodes: {
-          shape: 'dot',
-          size: 18,
-          font: { size: 18, color: getFontColor(theme) }
+
+          shape: 'box',
+
+          margin: {
+            top: 10,
+            right: 15,
+            bottom: 10,
+            left: 15
+          },
+
+          borderWidth: 1,
+
+          borderWidthSelected: 2,
+
+          shapeProperties: {
+            borderRadius: 12
+          },
+
+          font: {
+
+            size: 15,
+
+            color: '#FFFFFF',
+
+            face:
+              'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+
+            bold: {
+              color: '#FFFFFF'
+            }
+
+          },
+
+          shadow: {
+
+            enabled: true,
+
+            size: 8,
+
+            x: 0,
+
+            y: 3,
+
+            color:
+              theme === 'dark'
+                ? 'rgba(0,0,0,0.35)'
+                : 'rgba(20,30,60,0.14)'
+
+          }
+
         },
+
+
         edges: {
-          color: { inherit: 'from' },
-          width: 2,
+
+          width: 1.4,
+
+          selectionWidth: 2,
+
+          hoverWidth: 1.8,
+
+          color: {
+
+            color:
+              getEdgeColor(theme),
+
+            highlight:
+              theme === 'dark'
+                ? '#979CAA'
+                : '#7A7F89',
+
+            hover:
+              theme === 'dark'
+                ? '#979CAA'
+                : '#7A7F89',
+
+            inherit: false,
+
+            opacity: 0.88
+
+          },
+
+          smooth: {
+
+            enabled: true,
+
+            type: 'continuous',
+
+            roundness: 0.3
+
+          }
+
         },
+
+
         groups: groups,
-        physics: {
-          enabled: true,
-          solver: 'forceAtlas2Based',
+
+        interaction: {
+
+          hover: true,
+
+          hoverConnectedEdges: true,
+
+          tooltipDelay: 120,
+
+          dragNodes: true,
+
+          dragView: true,
+
+          zoomView: true,
+
+          navigationButtons: false,
+
+          keyboard: false
+
         },
+
+        physics: {
+
+          enabled: true,
+
+          solver: 'forceAtlas2Based',
+
+          forceAtlas2Based: {
+
+            gravitationalConstant: -42,
+
+            centralGravity: 0.008,
+
+            springLength: 145,
+
+            springConstant: 0.045,
+
+            damping: 0.52,
+
+            avoidOverlap: 0.65
+
+          },
+
+          stabilization: {
+
+            enabled: true,
+
+            iterations: 180,
+
+            updateInterval: 25,
+
+            fit: true
+
+          }
+
+        }
+
       };
 
-      let data = { nodes, edges };
-      network = new vis.Network(container, data, options);
 
-      network.on('dragging', function (event) {
-        const positions = network.getPositions();
-        const nodeIds = nodes.getIds();
+      const data = {
+        nodes: nodes,
+        edges: edges
+      };
 
-        for (let i = 0; i < nodeIds.length; i++) {
-          for (let j = i + 1; j < nodeIds.length; j++) {
-            const node1 = positions[nodeIds[i]];
-            const node2 = positions[nodeIds[j]];
 
-            if (node1 && node2) {
-              const dx = node1.x - node2.x;
-              const dy = node1.y - node2.y;
-              const distance = Math.sqrt(dx * dx + dy * dy);
+      network =
+        new vis.Network(
+          container,
+          data,
+          options
+        );
 
-              if (distance < 50) {
-                const edgeId = `${nodeIds[i]}-${nodeIds[j]}`;
-                if (!establishedEdges.has(edgeId)) {
-                  establishedEdges.add(edgeId);
-                  edges.add({ from: nodeIds[i], to: nodeIds[j] });
-                  checkIfAllConnected();
-                }
-              }
+      network.once(
+        'stabilizationIterationsDone',
+        function () {
+
+          network.fit({
+
+            animation: {
+              duration: 650,
+              easingFunction: 'easeInOutQuad'
             }
-          }
+
+          });
+
         }
-      });
+      );
+
+
+      network.on(
+        'dragging',
+        function () {
+
+          const positions =
+            network.getPositions();
+
+          const nodeIds =
+            nodes.getIds();
+
+
+          for (
+            let i = 0;
+            i < nodeIds.length;
+            i++
+          ) {
+
+            for (
+              let j = i + 1;
+              j < nodeIds.length;
+              j++
+            ) {
+
+              const id1 =
+                nodeIds[i];
+
+              const id2 =
+                nodeIds[j];
+
+
+              const node1 =
+                positions[id1];
+
+              const node2 =
+                positions[id2];
+
+
+              if (!node1 || !node2) {
+                continue;
+              }
+
+
+              const dx =
+                node1.x - node2.x;
+
+              const dy =
+                node1.y - node2.y;
+
+
+              const distance =
+                Math.sqrt(
+                  dx * dx +
+                  dy * dy
+                );
+
+              if (distance < 75) {
+
+                const sortedIds =
+                  [id1, id2]
+                    .sort(
+                      (a, b) => a - b
+                    );
+
+                const edgeId =
+                  sortedIds.join('-');
+
+
+                if (
+                  !establishedEdges.has(edgeId)
+                ) {
+
+                  establishedEdges.add(edgeId);
+
+
+                  edges.add({
+
+                    id: edgeId,
+
+                    from: id1,
+
+                    to: id2
+
+                  });
+
+
+                  checkIfAllConnected();
+
+                }
+
+              }
+
+            }
+
+          }
+
+        }
+      );
+
     }
 
     function checkIfAllConnected() {
-      const adjacencyList = {};
-      nodes.forEach(node => (adjacencyList[node.id] = []));
-      edges.forEach(edge => {
-        adjacencyList[edge.from].push(edge.to);
-        adjacencyList[edge.to].push(edge.from);
-      });
 
-      const visited = new Set();
-      const stack = [nodes.getIds()[0]];
+      const adjacencyList = {};
+
+
+      nodes.forEach(
+        node => {
+
+          adjacencyList[node.id] = [];
+
+        }
+      );
+
+
+      edges.forEach(
+        edge => {
+
+          adjacencyList[edge.from]
+            .push(edge.to);
+
+          adjacencyList[edge.to]
+            .push(edge.from);
+
+        }
+      );
+
+
+      const allNodeIds =
+        nodes.getIds();
+
+
+      if (allNodeIds.length === 0) {
+        return;
+      }
+
+
+      const visited =
+        new Set();
+
+
+      const stack =
+        [allNodeIds[0]];
+
 
       while (stack.length > 0) {
-        const current = stack.pop();
-        if (!visited.has(current)) {
-          visited.add(current);
-          adjacencyList[current].forEach(neighbor => {
-            if (!visited.has(neighbor)) {
-              stack.push(neighbor);
-            }
-          });
+
+        const current =
+          stack.pop();
+
+
+        if (
+          visited.has(current)
+        ) {
+          continue;
         }
+
+
+        visited.add(current);
+
+
+        adjacencyList[current]
+          .forEach(
+            neighbour => {
+
+              if (
+                !visited.has(neighbour)
+              ) {
+
+                stack.push(neighbour);
+
+              }
+
+            }
+          );
+
       }
 
-      if (visited.size === nodes.length) {
-        document.getElementById('success-title').style.display = 'block';
+
+      if (
+        visited.size ===
+        allNodeIds.length
+      ) {
+
+        successTitle.style.display =
+          'block';
+
+
+        successTitle.innerHTML =
+          '✦ Lyon NLP Network connected!';
+
       }
+
     }
 
-    createNetwork(getCurrentTheme());
 
-    document.addEventListener('themeChanged', function (event) {
-      let newTheme = event.detail.theme;
-      createNetwork(newTheme);
-    });
+    createNetwork(
+      getCurrentTheme()
+    );
 
-    function switch_theme() {
-      const currentTheme = getCurrentTheme();
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.addEventListener(
+      'themeChanged',
+      function (event) {
 
-      document.documentElement.classList.remove(currentTheme);
-      document.documentElement.classList.add(newTheme);
-      localStorage.setItem('theme', newTheme);
+        const newTheme =
+          event.detail &&
+          event.detail.theme
+            ? event.detail.theme
+            : getCurrentTheme();
 
-      document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
-    }
-  });
+
+        createNetwork(newTheme);
+
+      }
+    );
+
+    const themeObserver =
+      new MutationObserver(
+        function (mutations) {
+
+          mutations.forEach(
+            function (mutation) {
+
+              if (
+                mutation.attributeName ===
+                'class'
+              ) {
+
+                createNetwork(
+                  getCurrentTheme()
+                );
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+
+    themeObserver.observe(
+      document.documentElement,
+      {
+        attributes: true,
+        attributeFilter: ['class']
+      }
+    );
+
+  }
+);
+
 </script>
-<section class="project-area section-gap-top">
-  <div class="container">
-    <div class="section-title text-left">
-      <h2 class="text-xl font-bold mb-2" style="line-height: 1;">Conference Dates</h2>
-    </div>
-    <div class="col-lg-12 col-md-12">
-      <div class="card">
-<iframe
-  src="https://huggingface-ai-deadlines.hf.space"
-  frameborder="0"
-  width="100%"
-  height="500"
-  scrolling="yes">
-</iframe>
 
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-  {{ if eq .Paginator.PageNumber 1 }}
-  <h3 class="text-center sm:text-left mt-6 mb-4 text-2xl font-bold">{{ T "recent" }}</h3>
-  {{ else }}
-  <h3 class="mt-6 mb-4 text-2xl font-bold">{{ T "older" }}</h3>
-  {{ end }}
-  <div>
-    {{ $paginator := .Paginate (where .Site.RegularPages "Kind" "page") }}
-    {{ range $paginator.Pages }}
-    {{ if ne .Page.Layout "search" }}
-    {{ partial "item.html" . }}
-    {{ end }}
-    {{ end }}
-    {{ partial "paginator.html" . }}
-  </div>
-  {{ if .Site.Params.friends.feeds }}
-  <h3 class="mt-6 mb-6 text-2xl font-semibold">{{ .Site.Params.friends.title }}</h3>
-  <div id="friends"></div>
-  {{ end }}
-</main>
 {{ end }}
