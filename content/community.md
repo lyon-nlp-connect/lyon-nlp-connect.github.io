@@ -11,7 +11,9 @@ Most events will be held in person. 🎤
 {{< rawhtml >}}
 <h3>Participants</h3>
 
-<p>TB updated soon for the 2025–2026 academic year.</p>
+<p>
+We are a community of 40+ members from universities, research labs, and companies, including Lyon 1, Lyon 2, INSA Lyon, ENS de Lyon, École Centrale de Lyon, LIRIS, ERIC, Hubert Curien, Worldline, and Wikit.
+</p>
 
 <h3>About the Meetups</h3>
 
