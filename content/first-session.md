@@ -4,8 +4,8 @@ title: "First Session (24th of February, 2025)"
 date: "2025-01-11T10:52:59+08:00"
 description: "Join us for the first session on Monday, February 24, 2025 (9:00–12:30)!"
 categories:
-series:
-  - 'Sessions-for-2024-2025-academic-year'
+sessions:
+  - '2024-2025'
 ---
 
 ## Event Details
