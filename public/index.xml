@@ -5,33 +5,76 @@
     <link>//localhost:1313/</link>
     <description>Recent content on Lyon NLP Connect</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 28 Feb 2025 10:52:59 +0800</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Oct 2025 10:00:00 +0200</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Second Session</title>
+      <title>Fourth Session (23rd of October, 2025)</title>
+      <link>//localhost:1313/fourth-session/</link>
+      <pubDate>Mon, 20 Oct 2025 10:00:00 +0200</pubDate>
+      
+      <guid>//localhost:1313/fourth-session/</guid>
+      <description>&lt;h2 id=&#34;event-details&#34;&gt;Event Details&lt;/h2&gt;
+&lt;p&gt;The first Lyon NLP Connect meetup of the 2025–2026 academic year will take place on Thursday, October 23, 2025.&lt;/p&gt;
+&lt;p&gt;The meetup will include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Short presentations by participants about their research topics&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Presentations of collaborative projects&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Birds-of-a-Feather (BoF) discussions on:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LLM-based agents&lt;/li&gt;
+&lt;li&gt;Information retrieval&lt;/li&gt;
+&lt;li&gt;Multimodal models&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Participants who wish to present their work are invited to prepare a few slides covering the problem definition, research questions, and/or a summary of completed or ongoing work.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Third Session (24th of June, 2025)</title>
+      <link>//localhost:1313/third-session/</link>
+      <pubDate>Tue, 10 Jun 2025 10:52:59 +0800</pubDate>
+      
+      <guid>//localhost:1313/third-session/</guid>
+      <description>&lt;h2 id=&#34;event-details&#34;&gt;Event Details&lt;/h2&gt;
+&lt;p&gt;The third session will consist of 2 parts.
+We&amp;rsquo;ll begin with a roundtable for new participants to share their research interests, followed by a Birds-of-a-Feather-style group discussion.
+This time, apart from PhD students and postdocs, we invite MSc students working on NLP-related topics during internship, as well!
+The idea is to discuss recent papers on the selected topics.&lt;br&gt;
+The discussion-launching questions would be provided for each topic during the event.
+Selected topics:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Second Session (24th of April, 2025)</title>
       <link>//localhost:1313/second-session/</link>
       <pubDate>Fri, 28 Feb 2025 10:52:59 +0800</pubDate>
       
       <guid>//localhost:1313/second-session/</guid>
       <description>&lt;h2 id=&#34;event-details&#34;&gt;Event Details&lt;/h2&gt;
-&lt;p&gt;The second session will again consist of two parts—just like the first one!&lt;br&gt;
-We’ll start with a roundtable where new participants can share their research interests, areas of expertise, and the NLP subtopics they’re passionate about. Then, we&amp;rsquo;ll transition into a Birds-of-a-Feather-style session for lively group discussions.&lt;/p&gt;
-&lt;p&gt;The second part of the session will feature a coding workshop.&lt;/p&gt;
-&lt;p&gt;We’re currently selecting topics for both parts, and we encourage you to join our Discord server to weigh in on the discussion. To receive a link to our Discord server, please fill out the form on the home page (if you haven’t already). 🚀&lt;/p&gt;</description>
+&lt;p&gt;The second session will consist of two parts, similar to the first.
+We&amp;rsquo;ll begin with a roundtable for new participants to share their research interests, followed by a Birds-of-a-Feather-style group discussion. The session will conclude with a coding workshop.&lt;/p&gt;
+&lt;p&gt;We are finalizing topics for both parts and encourage members to join our Discord server to participate in the discussion.
+To receive the Discord link, please fill out the form on the homepage (if you haven&amp;rsquo;t already).&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>First Session</title>
+      <title>First Session (24th of February, 2025)</title>
       <link>//localhost:1313/first-session/</link>
       <pubDate>Sat, 11 Jan 2025 10:52:59 +0800</pubDate>
       
       <guid>//localhost:1313/first-session/</guid>
       <description>&lt;h2 id=&#34;event-details&#34;&gt;Event Details&lt;/h2&gt;
 &lt;p&gt;The first session will consist of two parts:&lt;br&gt;
-1️⃣ A &lt;strong&gt;roundtable discussion&lt;/strong&gt;, where participants can introduce themselves + BoF session&lt;br&gt;
-2️⃣ A &lt;strong&gt;coding workshop&lt;/strong&gt; focused on information retrieval.&lt;/p&gt;
+1️. &lt;strong&gt;Roundtable discussion&lt;/strong&gt;, where participants can introduce themselves and Birds-of-a-Feather sessions&lt;br&gt;
+2️. &lt;strong&gt;Coding workshop&lt;/strong&gt; on information retrieval&lt;/p&gt;
 &lt;h2 id=&#34;date-and-location&#34;&gt;Date and Location&lt;/h2&gt;
-&lt;p&gt;Date of the first session: Monday, February 24, 2025 (9.00-12.30)&lt;/p&gt;
+&lt;p&gt;Date: &lt;strong&gt;Monday, February 24, 2025 (9.00-12.30)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div style=&#34;display: flex; justify-content: space-between; flex-wrap: wrap;&#34;&gt;
   &lt;div style=&#34;width: 48%; margin-bottom: 10px;&#34;&gt;
@@ -52,32 +95,29 @@ We’ll start with a roundtable where new participants can share their research 
 &lt;p&gt;🕘 9:00 - 9:30 → ☕ Welcoming Reception&lt;br&gt;
 🕤 9:30 - 9:45 → Session Opening&lt;br&gt;
 🕘 9:45 - 10:45 → Round Table + Birds of a Feather (BoF) Sessions.
-Feel Free to choose/submit your topic here: &lt;a href=&#34;https://forms.gle/H6LEvNXuGyJ2fBog6&#34;&gt;https://forms.gle/H6LEvNXuGyJ2fBog6&lt;/a&gt;&lt;br&gt;
+Submit your topic here: &lt;a href=&#34;https://forms.gle/H6LEvNXuGyJ2fBog6&#34;&gt;https://forms.gle/H6LEvNXuGyJ2fBog6&lt;/a&gt;&lt;br&gt;
 🕥 10:45 - 11:00 → ☕ Coffee Break&lt;br&gt;
 🕚 11:00 - 12:45 → Coding Session&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>About the Community</title>
-      <link>//localhost:1313/about-community/</link>
+      <link>//localhost:1313/community/</link>
       <pubDate>Wed, 01 Jan 2025 08:52:59 +0800</pubDate>
       
-      <guid>//localhost:1313/about-community/</guid>
-      <description>&lt;h2 id=&#34;general-information&#34;&gt;General Information&lt;/h2&gt;
-&lt;p&gt;Our community connects students with shared interests in NLP and fosters discussions on exciting topics.&lt;br&gt;
-Most events will be held in person. 🎤👥&lt;/p&gt;
+      <guid>//localhost:1313/community/</guid>
+      <description>&lt;p&gt;The idea behind Lyon NLP Connect is to foster collaborations between PhD students in Lyon and Saint-Étienne working on NLP-related topics.&lt;br&gt;
+Most events will be held in person. 🎤&lt;/p&gt;
 
-&lt;section&gt; 
- &lt;h3&gt;What are BoFs?&lt;/h3&gt;
-&lt;p style=&#34;font-size: 1.3em;&#34;&gt;
-    BoFs (Birds-of-a-Feather sessions) are informal gatherings where people discuss shared interests in ML/NLP.  
-    They provide a relaxed space to exchange ideas, tackle challenges, and explore new research directions.  
-    Here are a few examples from past conferences:  
-    &lt;ul&gt;
-        &lt;li&gt;&lt;a href=&#34;https://2023.emnlp.org/program/bof&#34; target=&#34;_blank&#34;&gt;EMNLP 2023 BoF Sessions&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&#34;https://coling2025.org/program/bof&#34; target=&#34;_blank&#34;&gt;COLING 2025 BoF Sessions&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&#34;https://2023.aclweb.org/calls/bof&#34; target=&#34;_blank&#34;&gt;ACL 2023 BoF Calls&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;&lt;/p&gt;</description>
+&lt;h3&gt;Participants&lt;/h3&gt;
+
+&lt;p&gt;
+We are a community of 40+ members from universities, research labs, and companies, including Lyon 1, Lyon 2, INSA Lyon, ENS de Lyon, École Centrale de Lyon, LIRIS, ERIC, Hubert Curien, Worldline, and Wikit.
+&lt;/p&gt;
+
+&lt;h3&gt;About the Meetups&lt;/h3&gt;
+
+&lt;p&gt;Each meetup consists of:&lt;/p&gt;</description>
     </item>
     
     <item>

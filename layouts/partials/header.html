@@ -5,7 +5,7 @@
         {{ if .Site.Params.brand }}
         <div class="mr-3 text-3xl"><a href="/">{{ .Site.Params.brand }}</a></div>
         {{ end }}
-        <div id="theme-switch" class="text-2xl cursor-pointer">{{ index .Site.Params.switch 1 }}</div>
+        <div id="theme-switch" class="text-2xl cursor-pointer">{{ index .Site.Params.switch 1 | safeHTML}}</div>
       </div>
       <ul class="flex items-center text-base font-semibold
         whitespace-nowrap overflow-x-auto overflow-y-hidden">
@@ -14,7 +14,7 @@
           {{ if eq .Identifier "home" }}
           <a href='{{ relLangURL "" }}'>{{ T .Identifier | default .Name }}</a>
           {{ else }}
-          <a href="{{ relLangURL .Identifier }}">{{ T .Identifier | default .Name }}</a>
+          <a href="{{ relLangURL .Identifier }}">{{ T .Identifier | default .Name | safeHTML }}</a>
           {{ end }}
         </li>
         {{ end }}
