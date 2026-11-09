@@ -178,7 +178,7 @@ Examples of BoF sessions from conferences:
 <h3>Organizers</h3>
 <div class="organizers">
   <div class="organizer">
-    <img src="/thomas.jpg" alt="Thomas CHECCHIN">
+    <img src="/user-solid.png" alt="Thomas CHECCHIN">
     <div class="organizer-info">
       <div class="organizer-name">Thomas CHECCHIN</div>
       <div class="organizer-affiliation">
