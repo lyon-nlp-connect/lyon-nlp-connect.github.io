@@ -4,8 +4,8 @@ title: "Second Session (24th of April, 2025)"
 date: "2025-02-28T10:52:59+08:00"
 description: "Join us for the second session on Thursday, April 24, 2025 (9:00–13:00)!"
 categories:
-series:
-  - 'Sessions-for-2024-2025-academic-year'
+sessions:
+  - '2024-2025'
 ---
 
 ## Event Details

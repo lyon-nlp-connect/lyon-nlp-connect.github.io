@@ -41,12 +41,12 @@
       <!-- Sign-up button -->
       <div style="margin-top: 18px; text-align: left;">
 
-        <a
-          href="https://forms.gle/ww3rGqetLfhLyzYk8"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="text-decoration: none;"
-        >
+          <a
+              href="https://forms.gle/Na5bw2VqKq9Uh1zY8"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="text-decoration: none;"
+          >
 
           <button
             class="nlp-signup-button"
@@ -84,19 +84,19 @@
         >
 
           <a href="mailto:thomas.checchin@univ-lyon2.fr">
-            Thomas Checchin
+            Thomas CHECCHIN
           </a>
 
           &nbsp;·&nbsp;
 
           <a href="mailto:e.versmee@univ-lyon2.fr">
-            Erwan Versmée
+            Erwan VERSMÉE
           </a>
 
           &nbsp;·&nbsp;
           
           <a href="mailto:irina.proskurina@univ-lyon2.fr">
-            Irina Proskurina
+            Irina PROSKURINA
           </a>
 
         </p>
@@ -114,7 +114,7 @@
 
       <div>
         <h2
-          class="text-xl font-bold mb-2"
+          class="text-2xl font-bold mb-2"
           style="line-height: 1;"
         >
           Lyon NLP Network
@@ -211,7 +211,7 @@
       <div class="section-title text-left">
 
         <h2
-          class="text-xl font-bold mb-2"
+          class="text-2xl font-bold mb-2"
           style="line-height: 1;"
         >
           Conference Dates
@@ -223,14 +223,14 @@
 
         <div class="card">
 
-          <iframe
-            src="https://huggingface-ai-deadlines.hf.space"
-            frameborder="0"
-            width="100%"
-            height="500"
-            scrolling="yes"
-            title="AI Conference Deadlines"
-          >
+            <iframe
+                src="https://ccfddl.com/"
+                frameborder="0"
+                width="100%"
+                height="500"
+                scrolling="yes"
+                title="AI Conference Deadlines"
+            >
           </iframe>
 
         </div>
@@ -242,39 +242,76 @@
   </section>
 
 
-  {{ if eq .Paginator.PageNumber 1 }}
+  <section class="project-area section-gap-top">
 
-    <h3 class="text-center sm:text-left mt-6 mb-4 text-2xl font-bold">
+      <div class="container">
+
+          <div class="section-title text-left">
+
+              <h2
+                  class="text-2xl font-bold mb-2 mt-4"
+                  style="line-height: 1;"
+              >
+                  Sessions
+              </h2>
+          </div>
+      </div>
+    {{ if eq .Paginator.PageNumber 1 }}
+
+    <h3 class="text-center sm:text-left mt-6 mb-4 text-xl font-bold">
       {{ T "recent" }}
     </h3>
 
   {{ else }}
 
-    <h3 class="mt-6 mb-4 text-2xl font-bold">
+    <h3 class="mt-6 mb-4 text-xl font-bold">
       {{ T "older" }}
     </h3>
 
   {{ end }}
 
+    <div>
 
-  <div>
+        {{ $paginator := .Paginate (where .Site.RegularPages "Kind" "page") }}
 
-    {{ $paginator := .Paginate (where .Site.RegularPages "Kind" "page") }}
+        {{ range $paginator.Pages }}
 
-    {{ range $paginator.Pages }}
-
-      {{ if ne .Page.Layout "search" }}
+        {{ if .Page.Params.Sessions }}
 
         {{ partial "item.html" . }}
 
-      {{ end }}
+        {{ end }}
 
-    {{ end }}
+        {{ end }}
 
-    {{ partial "paginator.html" . }}
+        {{ partial "paginator.html" . }}
 
+    </div>
+  </section>
+  <section class="project-area section-gap-top">
+
+  <div class="container">
+
+      <div class="section-title text-left">
+
+          {{ $paginator := .Paginate (where .Site.RegularPages "Kind" "page") }}
+
+          {{ range $paginator.Pages }}
+
+          {{ if eq .Page.Params.Categories "Community" }}
+
+          <div>
+              <div class="flex flex-col-reverse sm:flex-row sm:justify-between">
+                  <a class="text-2xl font-bold" href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </div>
+          </div>
+          {{ end }}
+
+          {{ end }}
+
+      </div>
   </div>
-
+  </section>
 
   {{ if .Site.Params.friends.feeds }}
 
@@ -284,7 +321,7 @@
 
     <div id="friends"></div>
 
-  {{ end }}
+    {{ end }}
 
 </main>
 

@@ -4,8 +4,8 @@ title: "Fourth Session (23rd of October, 2025)"
 date: "2025-10-20T10:00:00+02:00"
 description: "Join us for the first Lyon NLP Connect meetup of the academic year on Thursday, October 23, 2025!"
 categories:
-series:
-  - 'Sessions-for-2025-2026-academic-year'
+sessions:
+  - '2025-2026'
 ---
 
 ## Event Details
