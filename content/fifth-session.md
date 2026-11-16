@@ -33,8 +33,8 @@ If you have a project idea for collaboration, you may also prepare a short descr
 ## Date and Location
 
 * **Date & Time:** Tuesday, November 17, 2026, 9:30–12:30
-* **Location:** BU Chevreul - Lyon 2 - Room CHE.409
-* **Map:** [10 Rue Chevreul, Lyon 69007, FR](https://maps.app.goo.gl/SgeXf2C2mBWw2tVH9)
+* **Location:** MSH, Room Yseult Saulnier (in the basement)
+* **Map:** [14 avenue Berthelot, Lyon 69007, FR](https://maps.app.goo.gl/X7E6WuNXNP73YUgm7)
 
 
 Looking forward to seeing you!
